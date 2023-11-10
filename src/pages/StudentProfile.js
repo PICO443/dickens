@@ -1,10 +1,9 @@
 import { Card, CardHeader } from "@mui/material"
+import { StudentProfileCard } from "../components/StudentProfile/StudentProfileCard"
 
 function StudentProfile(){
     return (
-        <div>
-            
-        </div>
+        <StudentProfileCard />
     )
 }
 
