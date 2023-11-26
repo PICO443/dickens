@@ -4,6 +4,7 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import { Drawer } from "./mui material-ui v5.14.15 docs-data_material_getting-started_templates_dashboard/Dashboard";
 import DrawerListItem from "./DrawerListItem";
 import { Dashboard } from "@mui/icons-material";
+import { School } from "@mui/icons-material"
 
 export default function DickensAppDrawer({ open, toggleDrawer }) {
   return (
@@ -29,14 +30,19 @@ export default function DickensAppDrawer({ open, toggleDrawer }) {
             route="/Dashboard"
           />
           <DrawerListItem
-            icon={<Dashboard />}
-            label={"Dashbaord"}
-            route="/Dashboard"
+            icon={<School />}
+            label={"Courses"}
+            route="/Courses"
           />
           <DrawerListItem
-            icon={<Dashboard />}
-            label={"Dashbaord"}
-            route="/Dashboard"
+            icon={<School />}
+            label={"Students"}
+            route="/Students"
+          />
+          <DrawerListItem
+            icon={<School />}
+            label={"Students"}
+            route="/Students"
           />
         </React.Fragment>
         <Divider sx={{ my: 1 }} />

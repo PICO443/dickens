@@ -1,9 +1,13 @@
 import DashboardPage from "./pages/DashboardPage";
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Scaffold from "./components/Scaffold";
 import RegisterStudentFormPage from "./pages/RegisterStudentFormPage";
 import { ProvideAuth } from "./AuthContext";
 import LoginPage from "./pages/LoginPage";
+import CoursePage from "./pages/CoursePage";
+import { ThemeProvider } from "@mui/system";
+import { useState } from "react";
+import { darkTheme, lightTheme } from "./theme";
 import StaffPage from "./pages/StaffPage";
 
 function App() {
@@ -25,17 +29,29 @@ function App() {
           element: <LoginPage />,
         },
         {
-          path: "course",
+          path: "courses",
+          element: <CoursePage />,
+        },
+        {
+          path: "staff",
           element: <StaffPage />,
         },
-        
       ],
     },
   ]);
 
+  const [theme, setTheme] = useState(lightTheme);
+  // const theme = createTheme()
+
+  const toggleTheme = () => {
+    setTheme(theme.palette.mode === "light" ? darkTheme : lightTheme);
+  };
+
   return (
     <ProvideAuth>
-      <RouterProvider router={router} />
+      <ThemeProvider theme={theme}>
+        <RouterProvider router={router} />
+      </ThemeProvider>
     </ProvideAuth>
   );
 }
